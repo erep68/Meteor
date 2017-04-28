@@ -1,0 +1,20 @@
+<template name="baseLayout">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Project Manager</a>
+            <ul id="nav-mobile" class="left">
+                {{> loginButtons}}
+                {{#if currentUser}}
+                    <li><a href="{{ pathFor '/projects' }}">Projectes</a></li>
+                    <li><a href="{{ pathFor '/perfil' }}">Perfil</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+
+    {{#momentum plugin='growl'}}
+        {{#if Template.subscriptionsReady}}
+            {{> yield}}
+        {{/if}}
+    {{/momentum}}
+</template>

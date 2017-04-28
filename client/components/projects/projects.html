@@ -1,0 +1,34 @@
+<template name="projects">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h2>Llistat de projectes</h2>
+                    <a href="{{ pathFor 'project_form'}}" class="btn">Afagir projecte</a>
+                    <hr>
+                    <ul class="with-header">
+                        {{#if projects.count}}
+                            {{#each projects}}
+                                <li class="collection-item">
+                                    <div>
+                                        {{name}}
+                                        <span class="right">
+                                            <a href="" class="remove">
+                                                <i class="material-icons">Eliminar</i>
+                                            </a>
+                                            <a style="margin-left: 20px;" href="{{ pathFor 'projects_detail' _id=_id}}" class="secondary-content">
+                                                <i class="material-icons">Detall</i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        {{else}}
+                            <li class="collection-item">No tens projectes</li>
+                        {{/if}}
+                    </ul>
+                </div>
+            <div class="col-md-12"></div>
+        </div>
+    </div>
+</template>
